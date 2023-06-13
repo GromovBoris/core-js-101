@@ -116,7 +116,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
 function repeatString(value, count) {
   let answer = value;
   for (let i = 0; i < count - 1; i++) {
-    answer = answer + value;
+    answer += value;
   }
 
   // while (answer.length < count) {
@@ -190,14 +190,14 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  let arr = str.split('');
+  const arr = str.split('');
   arr.push(';');
-  let answer = [];
+  const answer = [];
   let word = '';
 
   for (let i = 0; i < arr.length; i++) {
     if (!(arr[i] === ';')) {
-      word = word + arr[i];
+      word += arr[i];
     } else {
       answer.push(word);
       word = '';
@@ -230,12 +230,12 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let topLeft = '┌';
-  let topRight = '┐';
-  let bottomLeft = '└';
-  let bottomRight = '┘';
-  let verticalLine = '│';
-  let horizontalLine = '─';
+  const topLeft = '┌';
+  const topRight = '┐';
+  const bottomLeft = '└';
+  const bottomRight = '┘';
+  const verticalLine = '│';
+  const horizontalLine = '─';
   let answer = '';
 
   for (let i = 0; i < height; i++) {
@@ -247,7 +247,7 @@ function getRectangleString(width, height) {
       } else if (i === height - 1 && j === 0) {
         answer += bottomLeft;
       } else if (i === height - 1 && j === width - 1) {
-        answer += bottomRight + '\n';
+        answer += `${bottomRight}\n`;
       } else if (i === 0 || i === height - 1) {
         answer += horizontalLine;
       } else if (j === 0 || j === width - 1) {
@@ -282,22 +282,22 @@ function getRectangleString(width, height) {
  */
 function encodeToRot13(str) {
   let answer = '';
-  let firstLine = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let secondLine = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  let firstArr = firstLine.split('');
-  let secondArr = secondLine.split('');
-  let strArr = str.split('');
+  const firstLine = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const secondLine = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const firstArr = firstLine.split('');
+  const secondArr = secondLine.split('');
+  const strArr = str.split('');
   strArr.forEach((el) => {
     if (!firstArr.includes(el)) {
-      answer = answer + el;
+      answer += el;
     } else {
       for (let i = 0; i < firstArr.length; i++) {
         if (el === firstArr[i]) {
-          answer = answer + secondArr[i];
+          answer += secondArr[i];
           return;
         }
         if (el === firstArr[i]) {
-          answer = answer + firstArr[i];
+          answer += firstArr[i];
           return;
         }
       }
@@ -348,7 +348,7 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  let arr = [
+  const arr = [
     'A♣',
     '2♣',
     '3♣',
