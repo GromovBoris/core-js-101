@@ -115,7 +115,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  */
 function repeatString(value, count) {
   let answer = value;
-  for (let i = 0; i < count - 1; i++) {
+  for (let i = 0; i < count - 1; i += 1) {
     answer += value;
   }
 
@@ -195,7 +195,7 @@ function extractEmails(str) {
   const answer = [];
   let word = '';
 
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     if (!(arr[i] === ';')) {
       word += arr[i];
     } else {
@@ -238,8 +238,8 @@ function getRectangleString(width, height) {
   const horizontalLine = '─';
   let answer = '';
 
-  for (let i = 0; i < height; i++) {
-    for (let j = 0; j < width; j++) {
+  for (let i = 0; i < height; i += 1) {
+    for (let j = 0; j < width; j += 1) {
       if (i === 0 && j === 0) {
         answer += topLeft;
       } else if (i === 0 && j === width - 1) {
@@ -247,7 +247,7 @@ function getRectangleString(width, height) {
       } else if (i === height - 1 && j === 0) {
         answer += bottomLeft;
       } else if (i === height - 1 && j === width - 1) {
-        answer += `${bottomRight}\n`;
+        answer = answer.concat(bottomRight, '\n');
       } else if (i === 0 || i === height - 1) {
         answer += horizontalLine;
       } else if (j === 0 || j === width - 1) {
@@ -291,7 +291,7 @@ function encodeToRot13(str) {
     if (!firstArr.includes(el)) {
       answer += el;
     } else {
-      for (let i = 0; i < firstArr.length; i++) {
+      for (let i = 0; i < firstArr.length; i += 1) {
         if (el === firstArr[i]) {
           answer += secondArr[i];
           return;
@@ -403,7 +403,7 @@ function getCardId(value) {
     'K♠',
   ];
   let answer;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] === value) {
       answer = i;
     }
