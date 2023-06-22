@@ -23,7 +23,7 @@ function Rectangle(width, height) {
   const arrRectangle = {};
   arrRectangle.width = width;
   arrRectangle.height = height;
-  arrRectangle.getArea = function () {
+  arrRectangle.getArea = function getArea() {
     return arrRectangle.width * arrRectangle.height;
   };
   return arrRectangle;
